@@ -1,0 +1,3 @@
+alias ls='eza --git --icons=always -I "Library|.Trash|.localized|.DS_Store"'
+alias ll='eza -la --git --icons=always -I "Library|.Trash|.localized|.DS_Store"'
+alias lt='eza -laTh --level=2 --git --icons=always -I "Library|.Trash|.localized|.DS_Store|.git"'
