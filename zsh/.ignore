@@ -9,3 +9,5 @@ dist/
 target/
 .venv/
 .cache/
+.Trash/
+.DS_Store

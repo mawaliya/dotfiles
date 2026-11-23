@@ -3,6 +3,7 @@
 	email = silmy.mawaliya@gmail.com
 [core]
     pager = delta
+	excludesfile = /Users/silmy/.gitignore_global
 [interactive]
     diffFilter = delta --color-only
 [delta]
