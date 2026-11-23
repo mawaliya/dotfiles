@@ -1,0 +1,13 @@
+Library/
+Applications/
+Music/
+Movies/
+Pictures/
+.git/
+node_modules/
+dist/
+target/
+.venv/
+.cache/
+.Trash/
+.DS_Store

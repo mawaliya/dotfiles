@@ -23,16 +23,9 @@ eval "$(starship init zsh)"
 # zoxide
 eval "$(zoxide init zsh)"
 
+# aliases
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases   
 
 # Set up fzf key bindings and fuzzy completion
-. <(fzf --zsh)
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
-
-# fzf commands
-export FZF_DEFAULT_OPTS="
-  --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && tree -C {} | head -50)'
-  --bind '?:toggle-preview'
-  --preview-window right:60% --walker=file,follow,hidden --walker-skip=.git,node_modules,target,dist"
-# export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"   
