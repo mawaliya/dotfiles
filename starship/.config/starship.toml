@@ -10,15 +10,10 @@ $directory\
 $git_branch\
 $git_status\
 [](fg:yellow bg:green)\
-$c\
 $rust\
 $golang\
 $nodejs\
-$bun\
-$php\
-$java\
 $kotlin\
-$haskell\
 $python\
 [](fg:green bg:sapphire)\
 $conda\
@@ -96,11 +91,13 @@ format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+disabled = true
 
 [c]
 symbol = " "
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+disabled = true
 
 [rust]
 symbol = ""
@@ -116,11 +113,13 @@ format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+disabled = true
 
 [java]
 symbol = " "
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+disabled = true
 
 [jj_bookmark]
 symbol = ""
@@ -135,11 +134,13 @@ format = '[[($all )](fg:crust bg:yellow)]($style)'
 symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+disabled = true
 
 [haskell]
 symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+disabled = true
 
 [python]
 symbol = ""
@@ -156,6 +157,7 @@ symbol = "  "
 style = "fg:crust bg:sapphire"
 format = '[$symbol$environment ]($style)'
 ignore_base = false
+disabled = true
 
 [time]
 disabled = false
