@@ -16,7 +16,7 @@ _fzf_compgen_dir() {
 
 fe() {
   local file
-  file=$(fzf --preview 'bat {} --style=numbers --color=always') && ${EDITOR:-vim} "$file"
+  file=$(fzf) && ${EDITOR:-vim} "$file"
 }
 
 gch() {
@@ -26,6 +26,7 @@ gch() {
 
 # Live interactive ripgrep + fzf search -> preview highlighted line -> open in vim
 # Usage: rfg [optional initial query]
+# WARNING: NOT PERFORMANT YET. TO FIX!
 rfg() {
   local RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
   local INITIAL_QUERY="${*:-}"
@@ -78,8 +79,6 @@ export FZF_DEFAULT_OPTS="
 
 # Scoped previews & macOS pbcopy support
 export BAT_THEME="Catppuccin Mocha"
-export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 export FZF_CTRL_R_OPTS="
   --preview 'echo {2..} | bat --color=always -pl zsh'
   --preview-window down:40%:wrap:border-top
