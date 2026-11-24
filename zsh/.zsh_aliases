@@ -1,3 +1,6 @@
 alias ls='eza --git --icons=always -I "Library|.Trash|.localized|.DS_Store"'
 alias ll='eza -la --git --icons=always -I "Library|.Trash|.localized|.DS_Store"'
 alias lt='eza -laTh --level=2 --git --icons=always -I "Library|.Trash|.localized|.DS_Store|.git"'
+
+# Browse commits with full diff in preview
+alias glo='git log --oneline | fzf --preview "git show --color=always {1}"'
