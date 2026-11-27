@@ -3,6 +3,9 @@ HISTSIZE=50000
 SAVEHIST=50000
 setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE
 
+# explicitly set viins
+bindkey -v
+
 export EDITOR=nvim
 export VISUAL=nvim
 
