@@ -64,6 +64,12 @@ fzf-tab-after-autocomplete() {
     fi
     zle fzf-tab-complete
   }
+  # Arrow-down must not enter autocomplete's menu, or Tab stays menu-complete.
+  bindkey -M viins '^[[B' down-line-or-history
+  bindkey -M viins '^[OB' down-line-or-history
+  bindkey -M emacs '^[[B' down-line-or-history
+  bindkey -M emacs '^[OB' down-line-or-history
+
   zle -N tab-with-fzf
   bindkey -M emacs '^I' tab-with-fzf
   bindkey -M viins '^I' tab-with-fzf
