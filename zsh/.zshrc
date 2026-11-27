@@ -44,20 +44,25 @@ source ~/.zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 fzf-tab-after-autocomplete() {
   add-zsh-hook -d precmd fzf-tab-after-autocomplete
 
-  unset _ftb_orig_widget
+  # Drop the startup wrap that captured fzf-completion.
+  disable-fzf-tab
+  unfunction _main_complete
+  autoload -Uz _main_complete
+
+  # Now enable, so it wraps the real completer and not fzf-completion.
   bindkey -M emacs '^I' expand-or-complete
   bindkey -M viins '^I' expand-or-complete
   enable-fzf-tab
 
-  # fzf-completion must not call fzf-tab, or Tab recurses.
+  # **<Tab> falls back to ordinary completion, never back into fzf-tab.
   fzf_default_completion=expand-or-complete
 
   tab-with-fzf() {
     if [[ $LBUFFER == *'**' ]]; then
       zle fzf-completion
-    else
-      zle fzf-tab-complete
+      return
     fi
+    zle fzf-tab-complete
   }
   zle -N tab-with-fzf
   bindkey -M emacs '^I' tab-with-fzf
