@@ -4,3 +4,6 @@ alias lt='eza -laTh --level=2 --git --icons=always -I "Library|.Trash|.localized
 
 # Browse commits with full diff in preview
 alias glo='git log --oneline | fzf --preview "git show --color=always {1}"'
+
+alias vi='nvim'
+alias v='nvim'
