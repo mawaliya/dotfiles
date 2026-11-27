@@ -38,6 +38,13 @@ eval "$(zoxide init zsh)"
 # Set up fzf key bindings and fuzzy completion
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
+# ── fzf-tab (after fzf; before custom bindkeys) ──
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:*' fzf-preview-window 'right:50%:wrap'
+zstyle ':fzf-tab:complete:*' fzf-flags --preview-window=right:50%:wrap
+# Adjust path to your install:
+source ~/.zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+
 # ── After fzf: sage accept in vi insert (tmux: both arrow sequences) ──
 bindkey -M viins '^[[C' sage-accept
 bindkey -M viins '^[OC' sage-accept
