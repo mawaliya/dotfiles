@@ -9,10 +9,6 @@ bindkey -v
 export EDITOR=nvim
 export VISUAL=nvim
 
-# ── zsh-autocomplete: Tab + fzf (BEFORE sourcing the plugin) ──
-zstyle ':autocomplete:*' fzf-completion no
-zstyle ':autocomplete:tab:*' widget-style complete-word
-
 # ── Plugins (order matters!) ──────────────────────────
 # 1. zsh-autocomplete (runs compinit internally)
 source ~/.zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
@@ -44,6 +40,21 @@ zstyle ':fzf-tab:complete:*' fzf-preview-window 'right:50%:wrap'
 zstyle ':fzf-tab:complete:*' fzf-flags --preview-window=right:50%:wrap
 # Adjust path to your install:
 source ~/.zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+# Autocomplete's first prompt removes fzf-tab's completion hook. Put it back after that.
+fzf-tab-after-autocomplete() {
+  add-zsh-hook -d precmd fzf-tab-after-autocomplete
+  # Do not restore the pre-compinit wrapper. Wrap the real completer.
+  unset _ftb_orig_widget
+  bindkey -M emacs '^I' expand-or-complete
+  bindkey -M viins '^I' expand-or-complete
+  enable-fzf-tab
+  # **<Tab> stays fzf's fuzzy path completion. Any other Tab goes to fzf-tab.
+  fzf_default_completion=fzf-tab-complete
+  bindkey -M emacs '^I' fzf-completion
+  bindkey -M viins '^I' fzf-completion
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd fzf-tab-after-autocomplete
 
 # ── After fzf: sage accept in vi insert (tmux: both arrow sequences) ──
 bindkey -M viins '^[[C' sage-accept
