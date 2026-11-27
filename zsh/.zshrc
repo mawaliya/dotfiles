@@ -36,7 +36,6 @@ eval "$(zoxide init zsh)"
 
 # ── fzf-tab (after fzf; before custom bindkeys) ──
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:*' fzf-preview-window 'right:50%:wrap'
 zstyle ':fzf-tab:complete:*' fzf-flags --preview-window=right:50%:wrap
 # Adjust path to your install:
 source ~/.zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
